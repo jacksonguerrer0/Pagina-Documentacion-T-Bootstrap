@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="./img/js.png" />
     <!--Bootstrap css-->
     <link rel="stylesheet" href="./styles/bootstrap.min.css">
     <!--Css-->
@@ -14,8 +15,8 @@
     <title>Practicando Bootstrap</title>
 </head>
 <body>
-    <div class="container row m-auto">
-        <header class="list-group col-md-3">
+    <div class="container-xl row m-auto">
+        <header class="list-group col-md-4">
             <h2 class="text-center">Aprendiendo de LET</h2>
             <div id="list-example" class="list-group" >
                 <a class="list-group-item list-group-item-action" href="#list-item">Let</a>
@@ -30,88 +31,87 @@
                 <a class="list-group-item list-group-item-action" href="#list-item-10">Bloques let</a>
               </div>
         </header>
-          <div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example col-md-8 text-justify" id="contenido">
-            <h4 id="list-item-1">Let</h4>
-            <img id="portada" class="img-fluid" src="img/let.jpeg" alt="let">
-            <p>La instrucción let declara una variable de alcance local con ámbito de bloque(block scope), la cual, opcionalmente, puede ser inicializada con algún valor.
-                La palabra reservada let en Mozilla Firefox 44 y anteriores, está solo disponible para bloques de código en HTML que esten envueltos en una etiqueta (o de una version mayor). Las etiquetas XUL tienen acceso a esas características sin necesidad de dicho bloque. Es necesario tomar en cuenta que esta es una característica no estándar que ya se ha hecho actualmente estándar, esto pero puede crear conflictos con otros navegadores, ya que fue una característica no estándar.</p>
-            <h4 id="list-item-2">Sintaxis</h4>
+        <div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example col-md-8 text-justify" id="contenido">
+        <h4 id="list-item-1">Let</h4>
+        <img id="portada" class="img-fluid" src="img/let.jpeg" alt="let">
+        <p>La instrucción let declara una variable de alcance local con ámbito de bloque(block scope), la cual, opcionalmente, puede ser inicializada con algún valor.
+            La palabra reservada let en Mozilla Firefox 44 y anteriores, está solo disponible para bloques de código en HTML que esten envueltos en una etiqueta (o de una version mayor). Las etiquetas XUL tienen acceso a esas características sin necesidad de dicho bloque. Es necesario tomar en cuenta que esta es una característica no estándar que ya se ha hecho actualmente estándar, esto pero puede crear conflictos con otros navegadores, ya que fue una característica no estándar.</p>
+        <h4 id="list-item-2">Sintaxis</h4>
+        <code>
+            let var1 [= valor1] [, var2 [= valor2]] [, ..., varN [= valorN]];
+        </code>
+        <div class="lista">
+            <p>Parámetros</p>
+            <ul> 
+                <li>var1, var2, …, varN <br>
+                    Los nombres de la variable o las variables a declarar. Cada una de ellas debe ser un identificador legal de JavaScript</li>
+                <li>value1, value2, …, valueN <br>
+                    Por cada una de las variables declaradas puedes, opcionalmente, especificar su valor inicial como una expresión legal JavaScript.</li>
+            </ul>
+        </div>
+        <h4 id="list-item-3">Descripción</h4>
+        <p>let te permite declarar variables limitando su alcance (scope) al bloque, declaración, o expresión donde se está usando.a diferencia de la palabra clave var la cual define una variable global o local en una función sin importar el ámbito del bloque. La otra diferencia entre var y let es que este último se inicializa a un valor sólo cuando un analizador lo evalúa (ver abajo).<br> Al igual que const, let no crea propiedades del objeto se declara globalmente (en el alcance más alto).</p>
+        <h4 id="list-item-4">Alcance (scope) a nivel de bloque con let</h4>
+        <p>Usar la palabra reservada let para definir variables dentro de un bloque.</p>
             <code>
-                let var1 [= valor1] [, var2 [= valor2]] [, ..., varN [= valorN]];
+                if (x > y) { <br>
+                    &nbsp;&nbsp;let gamma = 12.7 + y;
+                    <br>&nbsp;&nbsp;i = gamma * x; <br>
+                    }
             </code>
-            <div class="lista">
-                <p>Parámetros</p>
-                <ul> 
-                    <li>var1, var2, …, varN <br>
-                        Los nombres de la variable o las variables a declarar. Cada una de ellas debe ser un identificador legal de JavaScript</li>
-                    <li>value1, value2, …, valueN <br>
-                        Por cada una de las variables declaradas puedes, opcionalmente, especificar su valor inicial como una expresión legal JavaScript.</li>
-                </ul>
-            </div>
-            <h4 id="list-item-3">Descripción</h4>
-            <p>let te permite declarar variables limitando su alcance (scope) al bloque, declaración, o expresión donde se está usando.a diferencia de la palabra clave var la cual define una variable global o local en una función sin importar el ámbito del bloque. La otra diferencia entre var y let es que este último se inicializa a un valor sólo cuando un analizador lo evalúa (ver abajo).<br> Al igual que const, let no crea propiedades del objeto se declara globalmente (en el alcance más alto).</p>
-            <h4 id="list-item-4">Alcance (scope) a nivel de bloque con let</h4>
-            <p>Usar la palabra reservada let para definir variables dentro de un bloque.</p>
-                <code>
-                    if (x > y) { <br>
-                        &nbsp;&nbsp;let gamma = 12.7 + y;
-                        <br>&nbsp;&nbsp;i = gamma * x; <br>
-                      }
-                </code>
-                <p>Es posible usar definiciones let para asociar código en extensiones con un pseudo-espacio-de-nombre (pseudo-namespace). (Ver Mejores prácticas de seguridad en extensiones.)</p>
-                <code>
-                    let Cc = Components.classes, Ci = Components.interfaces;
-                </code>
-                <p>El ejemplo anterior trabaja como se espera porque las cinco instancias de la función (anónima) interna hacen referencia a cinco diferentes instancias de la variable j. Nótese que esto no funcionaría como se espera si reemplazamos let con var o si removemos la variable j y simplemente usamos la variable i dentro de la función interna.</p>
-            <h4 id="list-item-5">Reglas de alcance</h4>
-            <p>Variables declaradas por let tienen por alcance el bloque en el que se han definido, así mismo, como en cualquier bloque interno. De esta manera, let trabaja muy parecido a var. La más notable diferencia es que el alcance de una variable var es la función contenedora:</p>
-                <code>
-                    var x = 'global'; <br>
-                    let y = 'global'; <br>
-                    console.log(this.x); // "global" <br>
-                    console.log(this.y); // undefined <br>
-                </code>
-            <h4 id="list-item-6">Zona muerta temporal y errores con let</h4>
-            <p>La redeclaración de la misma variable bajo un mismo ámbito léxico terminaría en un error de tipo SyntaxError. Esto también es extensible si usamos var dentro del ámbito léxico. Esto nos salvaguarda de redeclarar una variable accidentalmente y que no era posible  solo con var.</p>
-                <code>
+            <p>Es posible usar definiciones let para asociar código en extensiones con un pseudo-espacio-de-nombre (pseudo-namespace). (Ver Mejores prácticas de seguridad en extensiones.)</p>
+            <code>
+                let Cc = Components.classes, Ci = Components.interfaces;
+            </code>
+            <p>El ejemplo anterior trabaja como se espera porque las cinco instancias de la función (anónima) interna hacen referencia a cinco diferentes instancias de la variable j. Nótese que esto no funcionaría como se espera si reemplazamos let con var o si removemos la variable j y simplemente usamos la variable i dentro de la función interna.</p>
+        <h4 id="list-item-5">Reglas de alcance</h4>
+        <p>Variables declaradas por let tienen por alcance el bloque en el que se han definido, así mismo, como en cualquier bloque interno. De esta manera, let trabaja muy parecido a var. La más notable diferencia es que el alcance de una variable var es la función contenedora:</p>
+            <code>
+                var x = 'global'; <br>
+                let y = 'global'; <br>
+                console.log(this.x); // "global" <br>
+                console.log(this.y); // undefined <br>
+            </code>
+        <h4 id="list-item-6">Zona muerta temporal y errores con let</h4>
+        <p>La redeclaración de la misma variable bajo un mismo ámbito léxico terminaría en un error de tipo SyntaxError. Esto también es extensible si usamos var dentro del ámbito léxico. Esto nos salvaguarda de redeclarar una variable accidentalmente y que no era posible  solo con var.</p>
+            <code>
+                if (x) { <br>
+                    &nbsp;&nbsp;let foo; <br>
+                    &nbsp;&nbsp;let foo; // Terminamos con un SyntaxError. <br>
+                    }
                     if (x) { <br>
-                        &nbsp;&nbsp;let foo; <br>
-                        &nbsp;&nbsp;let foo; // Terminamos con un SyntaxError. <br>
-                      }
-                      if (x) { <br>
-                        &nbsp;&nbsp;let foo; <br>
-                        &nbsp;&nbsp;var foo; // Terminamos con un SyntaxError. <br>
-                      }
-                </code>
-                <p>En ECMAScript 2015, let no eleva la variable a la parte superior del bloque. Si se hace una referencia a la variable declarada con let (let foo) antes de su declaración, terminaríamos con un error de tipo ReferenceError (al contrario de la variable declarada con var, que tendrá el valor undefined), esto porque la variables vive en una "zona muerta temporal" desde el inicio del bloque hasta que la declaración ha sido procesada.</p>
-            <h4 id="list-item-7">Otro ejemplo de zona muerta temporal combinada con ámbito léxico</h4>
-            Debido al alcance léxico, el identificador num dentro de la expresión (num + 55) se evalúa como num del bloque if, y no como la variable num con el valor 33 que esta por encima <br>En esa misma línea, el num del bloque if ya se ha creado en el ámbito léxico, pero aún no ha alcanzado (y terminado) su inicialización (que es parte de la propia declaración): todavía está en la zona muerta temporal.</p>
-                <code>
-                    function prueba(){ <br>
-                        &nbsp;&nbsp;var num = 33; <br>
-                        &nbsp;&nbsp;if (true) { <br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;let num = (num + 55);//ReferenceError: no se puede acceder a la declaración léxica `num'antes de la inicialización <br> 
-                            &nbsp;&nbsp;} <br>
-                     }
-                     prueba();
-                </code>
-            <h4 id="list-item-8">Let vs Var</h4>
-            <p>Cuando usamos let dentro de un bloque, podemos limitar el alcance de la variable a dicho bloque. Notemos la diferencia con var, cuyo alcance reside dentro de la función donde ha sido declarada la variable.</p>
-            <h4 id="list-item-9">Let en Bucles</h4>
-            <p>Es posible usar la palabra reservada let para enlazar variables con alcance local dentro del alcance de un bucle en lugar de usar una variable global (definida usando var) para dicho propósito.</p>
-            <h4 id="list-item-10">Bloques de let</h4>
-            <p>El bloque let provee alcance local para las variables. Funciona enlazando cero o más variables en el alcance léxico de un solo bloque de código; de otra manera, es exactamente lo mismo que una declaración de bloque. Hay que notar particularmente que el alcance de una variable declarada dentro de un bloque let usando var es equivalente a declarar esa variable fuera del bloque let; dicha variable aún tiene alcance dentro de la función. Al usar la sintaxis de bloque let, los paréntesis siguientes a let son requeridos. Una falla al incluir dichos paréntesis resultará en un error de sintaxis.</p>
-                <code>
-                    var x = 5; <br>
-                    var y = 0; <br>
-                    let (x = x+10, y = 12) { <br>
-                    &nbsp;&nbsp;console.log(x+y); // 27 <br>
-                    } <br>
-                    console.log(x + y); // 5
-                </code>
-          </div>
+                    &nbsp;&nbsp;let foo; <br>
+                    &nbsp;&nbsp;var foo; // Terminamos con un SyntaxError. <br>
+                    }
+            </code>
+            <p>En ECMAScript 2015, let no eleva la variable a la parte superior del bloque. Si se hace una referencia a la variable declarada con let (let foo) antes de su declaración, terminaríamos con un error de tipo ReferenceError (al contrario de la variable declarada con var, que tendrá el valor undefined), esto porque la variables vive en una "zona muerta temporal" desde el inicio del bloque hasta que la declaración ha sido procesada.</p>
+        <h4 id="list-item-7">Otro ejemplo de zona muerta temporal combinada con ámbito léxico</h4>
+        Debido al alcance léxico, el identificador num dentro de la expresión (num + 55) se evalúa como num del bloque if, y no como la variable num con el valor 33 que esta por encima <br>En esa misma línea, el num del bloque if ya se ha creado en el ámbito léxico, pero aún no ha alcanzado (y terminado) su inicialización (que es parte de la propia declaración): todavía está en la zona muerta temporal.</p>
+            <code>
+                function prueba(){ <br>
+                    &nbsp;&nbsp;var num = 33; <br>
+                    &nbsp;&nbsp;if (true) { <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;let num = (num + 55);//ReferenceError: no se puede acceder a la declaración léxica `num'antes de la inicialización <br> 
+                        &nbsp;&nbsp;} <br>
+                    }
+                    prueba();
+            </code>
+        <h4 id="list-item-8">Let vs Var</h4>
+        <p>Cuando usamos let dentro de un bloque, podemos limitar el alcance de la variable a dicho bloque. Notemos la diferencia con var, cuyo alcance reside dentro de la función donde ha sido declarada la variable.</p>
+        <h4 id="list-item-9">Let en Bucles</h4>
+        <p>Es posible usar la palabra reservada let para enlazar variables con alcance local dentro del alcance de un bucle en lugar de usar una variable global (definida usando var) para dicho propósito.</p>
+        <h4 id="list-item-10">Bloques de let</h4>
+        <p>El bloque let provee alcance local para las variables. Funciona enlazando cero o más variables en el alcance léxico de un solo bloque de código; de otra manera, es exactamente lo mismo que una declaración de bloque. Hay que notar particularmente que el alcance de una variable declarada dentro de un bloque let usando var es equivalente a declarar esa variable fuera del bloque let; dicha variable aún tiene alcance dentro de la función. Al usar la sintaxis de bloque let, los paréntesis siguientes a let son requeridos. Una falla al incluir dichos paréntesis resultará en un error de sintaxis.</p>
+            <code>
+                var x = 5; <br>
+                var y = 0; <br>
+                let (x = x+10, y = 12) { <br>
+                &nbsp;&nbsp;console.log(x+y); // 27 <br>
+                } <br>
+                console.log(x + y); // 5
+            </code>
+        </div>
     </div>
-
     <!--B Jquery-->
     <script src="./scripts/jquery-3.6.0.min.js"></script>
     <!--B popper-->
